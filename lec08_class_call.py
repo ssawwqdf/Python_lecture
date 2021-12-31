@@ -1,8 +1,23 @@
+# 네임스페이스 -> 파이썬에서는 메모리 대신 네임스페이스라는 표현을 쓴다.
+# 네임 스페이스: 변수가 객체 바인딩 할 때 그 둘의 관계를 저장하는 공간
+# 모든 객체가 key 값이 되어 딕셔너리로 저장됨.
+# 인스턴스: 주소
+# 인스턴스의 네임스페이스에 해당 변수가 존재하지 않으면 클래스의 네임스페이스에서 찾음.
+
+# import 하면 메모리에 들어감.
+#메모리는 32비트 주소값으로 이루어짐.
+# import 한다고 바로 주소값 활용 가능한 건 아니고 생성자로 해서 넣으면 주소값 바인딩 됨.
+# 다같이 쓰는 애. self 없는 애는 그냥 import 해서 메모리에 넣고
+# self 들어간 애들은 새로운 메모리 파서 주소값에 할당
+
 #모듈: lec08.py 같이 띄워놓고 보자.
 # 모듈 = .py(확장자) 파일 : lec08_class_call.py
 
 # dummy(5)
  # -> 그냥 불러오면 실행 안 됨.
+
+#from 패키지(=폴더) import 모듈(.py)
+# 패키지(폴더).모듈(.py)
 
 from pkg import lec08 #from 안 쓰면 lec08 자동완성 안 먹음
 
@@ -22,7 +37,7 @@ from pkg.lec08 import UserClass #클래스로 잡아 들어가야 한다.
 UserClass.userPrint('훗')
 
 #self 들어간 건 생성자 만들어 써라.
-uc1=UserClass()
+uc1=UserClass()   #__init__(self, name) 해주면 Class호출 시 (name) 넣어줘야 함.
 uc1.userSearch()
 # uc1 주소가 self로 들어간다.
 # 에러 메세지: <pkg.lec08.UserClass object at 0x000001F2518166D0>
@@ -46,3 +61,30 @@ uc2.userSearch()
 # 에러 메세지: <pkg.lec08.UserClass object at 0x00000258D81666D0> 주소
 
 # -> uc1과 uc2의 주소 둘이 다르다.
+
+# ctrl 하고 가져온 함수 누르면 그 함수 def가 들어온다.
+
+#
+# print(uc1.__dir__())
+#
+# print(UserClass.__dict__)
+
+
+
+
+
+
+
+
+#--------------------------------상속
+from pkg.lec08 import MyClass  # : 이것도 가져와야됨
+my=MyClass('나', 20, 'f')
+
+my.myfunc()
+
+my.userInfo(20)
+
+# cd 이런짓 하지 마라.
+from pkg.book.notebook import my_first_module
+
+

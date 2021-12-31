@@ -4,6 +4,7 @@
         #행위 = 동작 = 함수(메서드)
     #이것들을 다 담고 있는 게 class
     #class도 객체다.
+# 인스턴스=self=주소
 
 #유사한 기능끼리 묶음.
 #다른 언어였으면 사실 UserClass.py 이런 식으로 하고 파일명이랑도 같게 해야 에러 안 남.
@@ -13,14 +14,27 @@
 
 #객체 네 개가 담긴 class도 객체다.
 
+#class 없이 self 쓰면 주소값으로 생각 안 한다.
 def dummy(num):
     print("dummy() 함수 실행", num)
 
 
+#--- self 파라미터 있는 함수는
+# 반드시 생성자 만들어서 호출
 
+# --- self 파라미터 없는 함수는
+# 반드시 클래스로 호출
 class UserClass:            #user관련된 게 들어오겠구나.
+    # def __init__(self):    #내가 쓰지 않아도 이 부분이 기본으로 들어가 있다. 아무 내용 안 쓰면 : pass
+                             #인스턴스랑 이어주는 역하.ㄹ
+    #     print("생성자")     #메모리 처음 불러올 때 초기값 설정. 이렇게 쓰면 이 클래스 불러올 때마다 생성자라고 뜸.
+    def __init__(self,name):   #클래스 새로 만들 때마다 그 클래스 주인 이름을 박아넣고 싶으면 이렇게 쓰면 된다.
+        print(name, "생성자", self) #만약 uc1.UserClass 불러오고 (name) value 안 주면 에러.
+
     username = "aaa"
     userage = 0
+
+
     def userPrint(name):    #()여는 순간 self가 붙는다.
         print(f"{name}님입니다.")
     def userSearch(self):
@@ -51,3 +65,27 @@ class UserClass:            #user관련된 게 들어오겠구나.
 #이런 걸 분리하기 위해 그런 거임.
 # self 넣을까말까는 이걸 다같이 쓰는 건지 유저마다 다르게 구현할 건지에 따라 결정됨.
 # 설계의 문제.
+
+#------------------------------------
+# __init__ : 메모리 만들어라
+# __del__ : 메모리 지워라
+
+
+
+
+
+
+
+#----------------------------------상속
+class Myclass(UserClass) :
+    def __init__(self, name, age, gen) :  # 상속 받았기 때문에 name, age 안 써도 가져와진다.
+        super().__init__(name, age) # super는 상속 준 class를 의미. UserClass라고 써도 된다.(u=Userclass 하고 u.__init__ ?????)
+        self.gen = gen
+    def myfunc(self):
+        print("myfunc()..")
+
+
+# from 하는 부분 강사님 코드 확인
+# 패키지 > 모듈 > 클래스
+#                  변수, 메서드
+# import 모듈까지 하든가 클래스까지 하는 걸 제일 추천
