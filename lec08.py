@@ -47,6 +47,7 @@ class UserClass:            #user관련된 게 들어오겠구나.
     # def comparePrice(self):  ->문법상 말은 되지만 userclass라기에 뜬금
     #     pass
 
+
 #class 없어도 문법 자체는 돌아간다.
 
 #()여는 순간 self가 붙는다.
