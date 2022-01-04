@@ -37,8 +37,8 @@ from pkg.lec08 import UserClass #클래스로 잡아 들어가야 한다.
 UserClass.userPrint('훗')
 
 #self 들어간 건 생성자 만들어 써라.
-uc1=UserClass()   #__init__(self, name) 해주면 Class호출 시 (name) 넣어줘야 함.
-uc1.userSearch()
+# uc1=UserClass()   #__init__(self, name) 해주면 Class호출 시 (name) 넣어줘야 함.
+# uc1.userSearch()
 # uc1 주소가 self로 들어간다.
 # 에러 메세지: <pkg.lec08.UserClass object at 0x000001F2518166D0>
 # uc1.userPrint('홍')
@@ -88,3 +88,8 @@ my.userInfo(20)
 from pkg.book.notebook import my_first_module
 
 
+# ----------------------캡슐화
+# print(my.__point) #에러
+print(my.__dir__())
+print(my._myClass__point)  ## 맹글링: 완벽한 OOP에서 캡슐하면 무슨 수를 쓰든 안 보여야 됨. 근데 접근 가능.
+                           ## 파이썬이 불완전한 OOP인 이유.
