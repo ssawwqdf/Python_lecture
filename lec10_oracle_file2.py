@@ -115,7 +115,7 @@ print(bb,type(bb))
 
 # 왠지모르겠지만 또 에러 -_-_--__-_-___-
 
-
+#
 list=[]
 with open ('./lec10_oracle_file.txt') as f:
     while True:
@@ -124,7 +124,7 @@ with open ('./lec10_oracle_file.txt') as f:
             break
         line_list=line.split('\t')                 # ******유연한 코딩
         for i, word in enumerate(line_list):    # *********************
-            line_list[i] = word.strip('\n')
+            line_list[i] = word.strip('\n')     # 뒤에 있는 줄바꿈 지우기
             if bool(word)==False:
                 line_list[i]='0'
         line_list[0] = int(line_list[0])
@@ -138,11 +138,13 @@ with open ('./lec10_oracle_file.txt') as f:
 print(list) # 날짜 이상하게 나오긴 한데 그래도 제대로 된 거다.
 
 
+############;를 지워야지!!!!!!!!!!!!!!!!!!!!!
+# 안 지우면 cx_Oracle.DatabaseError: ORA-00911: invalid character 에러
 def test_insert(list):
     conn = cx.connect("ai", "1111", "localhost:1521/XE")
     cur = conn.cursor()
     sql = """ INSERT INTO EMP2 VALUES
-            (:1,:2,:3,:4, :5,:6,:7,:8);
+            (:1,:2,:3,:4, :5,:6,:7,:8)     
             """
     cur.executemany(sql, list)
     cur.close()
