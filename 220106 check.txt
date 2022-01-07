@@ -1,0 +1,50 @@
+이혜린
+
+*drop, delete
+
+*4(3 참고)
+
+-> view(점선)
+
+-> e.empno로 해야 null이 0으로 나옴에 유의!!
+select d.deptno, d.dname, count(e.empno) 사원수
+from emp e, dept d
+where e.deptno(+)=d.deptno
+group by d.deptno, d.dname
+order by deptno
+;
+
+* 15, 15
+
+insert into dept(deptno, dname)
+values(40, '마케팅')
+;
+
+update dept
+set loc='대전'
+where deptno=30
+;
+
+delete dept
+where deptno=20
+;
+
+
+이상 초과 구분!!!!!!!!!!!!!!!
+select deptno, count(1), sum(sal)
+from emp
+group by deptno
+having count(1)>=4
+;
+
+4
+
+5
+
+select 과목번호, 과목이름
+from r2
+group by 과목번호, 과목이름
+having max(점수) >= 90
+;
+
+0, 1 (sum이라 6!!!!!!!!!!)
