@@ -29,4 +29,6 @@ import numpy as np # 100% np로 alias 준다.
 # print(df.info())
 
 ####################################################### 위로 주피터로 옮기기 완료
+df.todict
 
+df.to_dict()
