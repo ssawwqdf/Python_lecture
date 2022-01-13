@@ -34,3 +34,7 @@ import numpy as np # 100% np로 alias 준다.
 # df.to_dict()
 
 np.isnan
+
+import pandas as pd
+
+pd.get_dummies()
