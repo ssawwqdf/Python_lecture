@@ -33,8 +33,21 @@ import numpy as np # 100% np로 alias 준다.
 #
 # df.to_dict()
 
-np.isnan
+# import pandas as pd
 
+a = np.array([1, 2, 3, 4, 5, 6])
+res=(a[a > 3])
+print(res)
+
+# ---------출력 결과-----------
+# [4 5 6]
+# -----------------------------
 import pandas as pd
 
-pd.get_dummies()
+df=pd.DataFrame(['a','b','c'])
+print(df)
+
+df=pd.DataFrame([['a','b','c']]
+                )
+print(df)
+
